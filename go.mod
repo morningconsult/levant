@@ -3,7 +3,7 @@ module github.com/hashicorp/levant
 go 1.13
 
 require (
-	github.com/Masterminds/sprig/v3 v3.1.0
+	github.com/Masterminds/sprig/v3 v3.2.1
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/davecgh/go-spew v1.1.1
 	github.com/hashicorp/consul/api v1.8.1
@@ -29,5 +29,3 @@ require (
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	gopkg.in/yaml.v2 v2.3.0
 )
-
-replace github.com/hashicorp/nomad/api => github.com/hashicorp/nomad/vendor/github.com/hashicorp/nomad/api v0.0.0-20210517202321-f99f1e27bb66
