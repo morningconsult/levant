@@ -32,6 +32,14 @@ pkg/%.zip: pkg/%/levant ## Build and zip Levant for GOOS_GOARCH, e.g. pkg/linux_
 crt:
 	@CGO_ENABLED=0 go build -trimpath -ldflags $(GO_LDFLAGS) -tags "$(GO_TAGS)" -o "$(BIN_PATH)"
 
+.PHONY: build
+build:
+	@echo "==> Building Levant..."
+	@CGO_ENABLED=0 GO111MODULE=on \
+	go build \
+	-ldflags $(GO_LDFLAGS) \
+	-o ./bin/levant
+	@echo "==> Done"
 
 .PHONY: dev
 dev: check ## Build for the current development version
