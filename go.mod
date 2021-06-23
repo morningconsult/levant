@@ -14,6 +14,7 @@ require (
 	github.com/hashicorp/nomad v1.1.0
 	github.com/hashicorp/nomad/api v0.0.0-20210527173017-41a43a98dc82
 	github.com/hashicorp/terraform v0.13.5
+	github.com/imdario/mergo v0.3.12
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/mattn/go-isatty v0.0.12
 	github.com/mitchellh/cli v1.1.0

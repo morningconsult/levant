@@ -38,6 +38,11 @@ job "[[.job_name]]" {
           db = 6379
         }
       }
+      env {
+        [[- if .environment ]]
+        name = "[[ .environment.name ]]"
+        [[- end ]]
+      }
       resources {
         cpu    = [[.task_resource_cpu]]
         memory = 256

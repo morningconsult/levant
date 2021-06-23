@@ -13,6 +13,7 @@ import (
 	"github.com/hashicorp/nomad/jobspec"
 	"github.com/hashicorp/terraform/configs"
 	"github.com/hashicorp/terraform/configs/hcl2shim"
+	"github.com/imdario/mergo"
 	"github.com/rs/zerolog/log"
 	yaml "gopkg.in/yaml.v2"
 )
@@ -77,8 +78,9 @@ func RenderTemplate(templateFile string, variableFiles []string, addr string, fl
 		if err != nil {
 			return
 		}
-		for k, v := range variables {
-			mergedVariables[k] = v
+
+		if err := mergo.Merge(&mergedVariables, variables, mergo.WithOverride); err != nil {
+			return nil, err
 		}
 	}
 

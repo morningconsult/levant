@@ -11,6 +11,7 @@ const (
 	testJobName           = "levantExample"
 	testJobNameOverwrite  = "levantExampleOverwrite"
 	testJobNameOverwrite2 = "levantExampleOverwrite2"
+	testJobEnvOverwrite   = "overwrite"
 	testDCName            = "dc13"
 	testEnvName           = "GROUP_NAME_ENV"
 	testEnvValue          = "cache"
@@ -64,6 +65,11 @@ func TestTemplater_RenderTemplate(t *testing.T) {
 	}
 	if *job.Name != testJobNameOverwrite {
 		t.Fatalf("expected %s but got %v", testJobNameOverwrite, *job.Name)
+	}
+
+	envName := job.TaskGroups[0].Tasks[0].Env["name"]
+	if envName != testJobEnvOverwrite {
+		t.Fatalf("expected %q but got %v", testJobEnvOverwrite, envName)
 	}
 
 	// Test multiple var-files with var-args
